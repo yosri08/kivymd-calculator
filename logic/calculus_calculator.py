@@ -10,7 +10,7 @@ from sympy import (
 
 class CalculusCalculatorLogic:
     """
-    Handles calculus operations using SymPy.
+    Handles calculus operations using sympy
     """
 
     def __init__(self):
@@ -18,7 +18,7 @@ class CalculusCalculatorLogic:
 
     def normalize_expression(self, expression: str) -> str:
         """
-        Convert calculator symbols into SymPy syntax.
+        Convert calculator symbols into SymPy syntax
         """
 
         return (
@@ -32,7 +32,7 @@ class CalculusCalculatorLogic:
 
     def parse_expression(self, expression: str):
         """
-        Convert a calculator expression into a SymPy expression.
+        Convert a calculator expression into a sympy expression
         """
 
         normalized = self.normalize_expression(expression)
@@ -40,7 +40,7 @@ class CalculusCalculatorLogic:
 
     def limit(self, expression: str, point: str) -> str:
         """
-    Calculate the limit of an expression.
+    Calculate the limit of an expression
         """
 
         try:
@@ -61,7 +61,7 @@ class CalculusCalculatorLogic:
 
     def differentiate(self, expression: str) -> str:
         """
-        Differentiate an expression with respect to x.
+        Differentiate an expression with respect to x
         """
 
         try:
@@ -74,7 +74,7 @@ class CalculusCalculatorLogic:
 
     def integrate(self, expression: str) -> str:
         """
-        Compute the indefinite integral.
+        Integrates an expression with respect to x
         """
 
         try:
@@ -92,7 +92,7 @@ class CalculusCalculatorLogic:
         upper: float,
     ) -> str:
         """
-        Compute a definite integral.
+        Compute a definite integral with respect to x
         """
 
         try:

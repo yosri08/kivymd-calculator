@@ -2,29 +2,22 @@ import pytest
 from sympy import simplify
 from logic.calculus_calculator import CalculusCalculatorLogic
 
+
+helper = CalculusCalculatorLogic()
+
+
+
 LIMIT_TEST_CASES = [
-    # Basic
     ("x", "0", "0"),
     ("x^2", "2", "4"),
     ("x+5", "10", "15"),
-
-    # Infinity
     ("1/x", "oo", "0"),
     ("1/x", "-oo", "0"),
     ("x^2", "oo", "oo"),
-
-    # Trigonometry
     ("sin(x)/x", "0", "1"),
-
-    # Rational
     ("(x^2-1)/(x-1)", "1", "2"),
-
-    # Invalid
     ("5+", "0", "Error"),
 ]
-
-
-helper = CalculusCalculatorLogic()
 
 @pytest.mark.parametrize("expression, point, expected", LIMIT_TEST_CASES)
 def test_limit(expression, point, expected):
@@ -47,29 +40,16 @@ def test_limit(expression, point, expected):
         
         
 DIFFERENTIATE_TEST_CASES = [
-    # Constants
     ("5", "0"),
-
-    # Basic
     ("x", "1"),
     ("x^2", "2*x"),
     ("x^3", "3*x**2"),
-
-    # Polynomial
     ("x^2+2*x+1", "2*x + 2"),
-
-    # Trigonometry
     ("sin(x)", "cos(x)"),
     ("cos(x)", "-sin(x)"),
     ("tan(x)", "tan(x)**2 + 1"),
-
-    # Logarithm
     ("log(x)", "1/x"),
-
-    # Exponential
     ("exp(x)", "exp(x)"),
-
-    # Invalid
     ("5+", "Error"),
 ]
 
@@ -92,25 +72,14 @@ def test_differentiate(expression, expected):
         
         
 INTEGRATE_TEST_CASES = [
-    # Constants
     ("5", "5*x"),
-
-    # Basic
     ("x", "x**2/2"),
     ("2*x", "x**2"),
     ("3*x^2", "x**3"),
-
-    # Trigonometry
     ("cos(x)", "sin(x)"),
     ("sin(x)", "-cos(x)"),
-
-    # Logarithm
     ("1/x", "log(x)"),
-
-    # Exponential
     ("exp(x)", "exp(x)"),
-
-    # Invalid
     ("5+", "Error"),
 ]
 

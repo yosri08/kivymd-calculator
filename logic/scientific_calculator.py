@@ -24,16 +24,12 @@ class ScientificCalculatorLogic:
         "π": "pi",
     }
 
-    TOKEN_PATTERN = re.compile(
-        r"[a-z]+\(.*?\)|\d+\.?\d*|[+\-*/()]|√\d+|√"
-    )
-
     def __init__(self):
         self.aeval = Interpreter()
 
     def update_expression(self, expression: str, token: str) -> str:
         """
-        Add a new token/function to the current expression.
+        Add a new token to the current expression
         """
 
         if token in self.TRIG_FUNCTIONS or token in self.FUNCTIONS:
@@ -46,7 +42,7 @@ class ScientificCalculatorLogic:
 
     def normalize_expression(self, expression: str) -> str:
         """
-        Convert calculator syntax into Python syntax.
+        Convert calculator syntax into Python syntax
         """
 
         expression = self._replace_symbols(expression)
@@ -85,7 +81,7 @@ class ScientificCalculatorLogic:
 
     def solve_expression(self, expression: str) -> str:
         """
-        Evaluate an expression and return the result.
+        solves an expression and returns the result
         """
 
         try:
@@ -101,15 +97,15 @@ class ScientificCalculatorLogic:
                 if exception is ZeroDivisionError:
                     return "Error: Can't divide by zero."
 
-                if exception in (SyntaxError, NotImplementedError):
+                elif exception in (SyntaxError, NotImplementedError):
                     return "Error: Invalid syntax."
-
-                return f"Error: {exception}"
+                else:
+                    return f"Error: {exception}"
 
             if not isinstance(result, (int, float)):
                 return "Error: Invalid expression."
 
-            if isinstance(result, float) and result.is_integer():
+            if isinstance(result, float) and result.is_integer(): #in case the result was 1.00 for example we only need the whole number not the decimals
                 return str(int(result))
 
             return str(round(result, 8))

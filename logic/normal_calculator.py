@@ -11,7 +11,7 @@ class NormalCalculatorLogic:
         self.number_split = re.compile(r"[+\-×÷]")
 
     def update_expression(self, expression: str, token: str) -> str:
-        """Return the updated expression after inserting a token."""
+        """Return the updated expression after inserting a token"""
 
         last_char = expression[-1] if expression else ""
 
@@ -72,10 +72,13 @@ class NormalCalculatorLogic:
 
     @staticmethod
     def normalize_expression(expression: str) -> str:
-        """Convert calculator symbols into Python operators."""
+        """Convert calculator symbols into python symbols"""
         return expression.replace("×", "*").replace("÷", "/")
 
     def solve_expression(self, expression: str) -> str:
+        """
+        solves an expression and returns the result
+        """
         try:
             self.aeval.error.clear()
             normalaized_expression = self.normalize_expression(expression)
