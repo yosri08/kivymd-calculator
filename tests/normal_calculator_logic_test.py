@@ -1,5 +1,4 @@
 import pytest
-import logic
 from logic.normal_calculator import NormalCalculatorLogic
 
 ADD_EXPRESSION_TEST_CASES = [
