@@ -3,6 +3,9 @@ __pycache__/
 *.py[codz]
 *$py.class
 
+# kivy logger
+.kivy/
+
 # C extensions
 *.so
 
