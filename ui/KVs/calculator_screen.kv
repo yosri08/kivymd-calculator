@@ -1,0 +1,122 @@
+<NumberButton@MDFlatButton>:
+    font_size: "35sp"
+    md_bg_color: self.theme_cls.primary_color
+    on_press: self.parent.parent.parent.parent.update_expression(self.text)
+<OperationButton@MDFlatButton>:
+    font_size: "35sp"
+    md_bg_color: app.darken()
+    on_press: self.parent.parent.parent.parent.update_expression(self.text)
+<CalculatorScreen>:
+    MDBoxLayout:
+        orientation: "vertical"
+        spacing: dp(15)
+
+        MDTopAppBar:
+            title: "Calculator"
+            left_action_items: [["arrow-left", lambda x: setattr(app.root, "current", "main_screen")]]
+        MDTextField:
+            id: display
+            text: "0"
+            readonly: True
+            mode: "line"
+            multiline: True
+            font_size: "50sp"
+
+        MDBoxLayout:
+            orientation: "vertical"
+            spacing: dp(5)
+            padding: 0,dp(15)
+            MDBoxLayout:
+                spacing: dp(5)
+
+                MDFlatButton:
+                    text: "C"
+                    size_hint: 1, 1
+                    md_bg_color: "orange"
+                    font_size: "35sp"
+                    on_press: root.clear()
+
+                OperationButton:
+                    text: "÷"
+                    size_hint: 1, 1
+
+                OperationButton:
+                    text: "×"
+                    size_hint: 1, 1
+
+                MDFlatButton:
+                    text: "DEL"
+                    size_hint: 1, 1
+                    md_bg_color: "red"
+                    font_size: "35sp"
+                    on_press: root.delete()
+            MDBoxLayout:
+                spacing: dp(5)
+
+                NumberButton:
+                    text: "7"
+                    size_hint: 1, 1
+
+                NumberButton:
+                    text: "8"
+                    size_hint: 1, 1
+
+                NumberButton:
+                    text: "9"
+                    size_hint: 1, 1
+
+                OperationButton:
+                    text: "-"
+                    size_hint: 1, 1
+
+            MDBoxLayout:
+                spacing: dp(5)
+
+                NumberButton:
+                    text: "4"
+                    size_hint: 1, 1
+
+                NumberButton:
+                    text: "5"
+                    size_hint: 1, 1
+
+                NumberButton:
+                    text: "6"
+                    size_hint: 1, 1
+
+                OperationButton:
+                    text: "+"
+                    size_hint: 1, 1
+
+            MDBoxLayout:
+                spacing: dp(5)
+
+                NumberButton:
+                    text: "1"
+                    size_hint: 1, 1
+
+                NumberButton:
+                    text: "2"
+                    size_hint: 1, 1
+
+                NumberButton:
+                    text: "3"
+                    size_hint: 1, 1
+
+                OperationButton:
+                    text: "."
+                    size_hint: 1, 1
+
+            MDBoxLayout:
+                spacing: dp(5)
+
+                NumberButton:
+                    text: "0"
+                    size_hint: 0.75, 1
+
+                MDFlatButton:
+                    font_size: "35sp"
+                    md_bg_color: app.darken()
+                    text: "="
+                    size_hint: 0.25, 1
+                    on_press: root.solve()
