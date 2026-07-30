@@ -19,5 +19,4 @@ class CalculatorScreen(MDScreen):
         
     def delete(self):
         display = self.ids.display
-        display.text = display.text[:len(display.text)-1]
-    pass
+        display.text = self.helper.delete(display.text)

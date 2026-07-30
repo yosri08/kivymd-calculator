@@ -1,11 +1,22 @@
-<NumberButton@MDFlatButton>:
+
+#: import CalcButton ui.widgets.calc_button
+
+<NumberButton@CalcButton>:
     font_size: "35sp"
+    radius: dp(5)
+    size_hint: 1,1
     md_bg_color: self.theme_cls.primary_color
-    on_press: self.parent.parent.parent.parent.update_expression(self.text)
-<OperationButton@MDFlatButton>:
+    on_press: app.calculator_screen.update_expression(self.text)
+    
+    
+<OperationButton@CalcButton>:
     font_size: "35sp"
+    radius: dp(5)
+    size_hint: 1,1
     md_bg_color: app.darken()
-    on_press: self.parent.parent.parent.parent.update_expression(self.text)
+    on_press: app.calculator_screen.update_expression(self.text)
+    
+    
 <CalculatorScreen>:
     MDBoxLayout:
         orientation: "vertical"
@@ -29,8 +40,9 @@
             MDBoxLayout:
                 spacing: dp(5)
 
-                MDFlatButton:
+                CalcButton:
                     text: "C"
+                    radius: dp(5)
                     size_hint: 1, 1
                     md_bg_color: "orange"
                     font_size: "35sp"
@@ -44,8 +56,9 @@
                     text: "×"
                     size_hint: 1, 1
 
-                MDFlatButton:
+                CalcButton:
                     text: "DEL"
+                    radius: dp(5)
                     size_hint: 1, 1
                     md_bg_color: "red"
                     font_size: "35sp"
@@ -114,8 +127,9 @@
                     text: "0"
                     size_hint: 0.75, 1
 
-                MDFlatButton:
+                CalcButton:
                     font_size: "35sp"
+                    radius: dp(5)
                     md_bg_color: app.darken()
                     text: "="
                     size_hint: 0.25, 1

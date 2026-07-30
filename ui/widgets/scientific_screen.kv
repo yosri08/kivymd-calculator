@@ -1,0 +1,185 @@
+
+#: import CalcButton ui.widgets.calc_button
+
+<FunctionButton@CalcButton>:
+    md_bg_color: app.darken2()
+    font_size: "30sp"
+    size_hint: 1,1
+    radius: dp(5)
+<NumButton@CalcButton>:
+    md_bg_color: self.theme_cls.primary_color
+    font_size: "45sp"
+    on_press: print()
+    radius: dp(5)
+<OperButton@CalcButton>:
+    md_bg_color: app.darken()
+    font_size: "40sp"
+    on_press: print()
+    radius: dp(5)
+<ScientificScreen>:
+    MDBoxLayout:
+        orientation: "vertical"
+        spacing: dp(15)
+        MDTopAppBar:
+            title: "Scientific Calculator"
+            
+        MDTextField:
+            mode: "line"
+            readonly: True
+            
+        MDBoxLayout:
+            orientation: "vertical"
+            spacing: dp(5)
+            MDBoxLayout:
+                spacing: dp(5)
+                size_hint_x: 0.5
+                orientation: "vertical"
+                md_bg_color: "red"
+                MDBoxLayout:
+                    spacing: dp(5)
+                    
+                    #adaptive_height: True
+                    FunctionButton:
+                        text: "%"
+                      
+                    FunctionButton:
+                        text: "!"
+                       
+                    FunctionButton:
+                        text: "Null"
+                        
+                    
+                MDBoxLayout:
+                    spacing: dp(5)
+                   # adaptive_height: True
+                    FunctionButton:
+                        text: "log"
+                        size_hint: 1,1
+                        size_hint: 1,1
+                    
+                    FunctionButton:
+                        text: "In"
+                        size_hint: 1,1
+                        size_hint: 1,1
+                    
+                    FunctionButton:
+                        text: "√x"
+                        size_hint: 1,1
+                        size_hint: 1,1
+                        
+                    
+                MDBoxLayout:
+                    spacing: dp(5)
+                    #adaptive_height: True
+                    FunctionButton:
+                        text: "sin"
+                        size_hint: 1,1
+                        
+                    
+                    FunctionButton:
+                        text: "cos"
+                        size_hint: 1,1
+                        
+                    
+                    FunctionButton:
+                        text: "tan"
+                        size_hint: 1,1
+            
+            MDBoxLayout:
+                spacing: dp(5)
+                NumButton:
+                    text: "7"
+                    size_hint: 1,1
+                NumButton:
+                    text: "8"
+                    size_hint: 1,1
+                NumButton:
+                    text: "9"
+                    size_hint: 1,1
+                OperButton:
+                    text: "("
+                    size_hint: 1,1
+                OperButton:
+                    text: ")"
+                    size_hint: 1,1
+                OperButton:
+                    text: "+"
+                    size_hint: 1,1
+                    
+            MDBoxLayout:
+                spacing: dp(5)
+                
+                NumButton:
+                    text: "4"
+                    size_hint: 1,1
+                NumButton:
+                    text: "5"
+                    size_hint: 1,1
+                NumButton:
+                    text: "6"
+                    size_hint: 1,1
+                OperButton:
+                    text: "×10²"
+                    size_hint: 1,1
+                OperButton:
+                    text: "×10³"
+                    size_hint: 1,1
+                OperButton:
+                    text: "-"
+                    size_hint: 1,1
+                    
+            MDBoxLayout:
+                spacing: dp(5)
+                
+                NumButton:
+                    text: "1"
+                    size_hint: 1,1
+                NumButton:
+                    text: "2"
+                    size_hint: 1,1
+                NumButton:
+                    text: "3"
+                    size_hint: 1,1
+                OperButton:
+                    text: "x²"
+                    size_hint: 1,1
+                OperButton:
+                    text: "x³"
+                    size_hint: 1,1
+                OperButton:
+                    text: "×"
+                    size_hint: 1,1
+                    
+            MDBoxLayout:
+                spacing: dp(5)
+                
+                NumButton:
+                    text: "."
+                    size_hint: 1,1
+                NumButton:
+                    text: "0"
+                    size_hint: 1,1
+                NumButton:
+                    text: "π"
+                    size_hint: 1,1
+                OperButton:
+                    text: "x^-1"
+                    size_hint: 1,1
+                OperButton:
+                    text: "x^y"
+                    size_hint: 1,1
+                OperButton:
+                    text: "÷"
+                    size_hint: 1,1
+                    
+            
+                    
+            
+                
+                
+                
+                    
+            
+                    
+            
+                

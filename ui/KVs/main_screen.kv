@@ -15,10 +15,12 @@
             MenuButton:
                 icon: "calculator-variant-outline"
                 text: "Calculator"
+                on_press: setattr(app.root, "current", "calculator_screen")
 
             MenuButton:
                 icon: "math-log"
                 text: "Scientific Calculator"
+                on_press: setattr(app.root, "current", "scientific_screen")
 
             MenuButton:
                 icon: "math-integral"

@@ -5,10 +5,12 @@ from asteval import Interpreter
 class NormalCalculatorLogic:
     
 
-    def __init__(self):
-        self.aeval = Interpreter()
-        self.operators = {"+", "-", "×", "÷"}
-        self.number_split = re.compile(r"[+\-×÷]")
+    aeval = Interpreter()
+    operators = {"+", "-", "×", "÷"}
+    number_split = re.compile(r"[+\-×÷]")
+    
+    def delete(self, expression: str) -> str:
+        return "0" if (expression == "" or expression == "0") else expression[:len(expression)-1]
 
     def update_expression(self, expression: str, token: str) -> str:
         """Return the updated expression after inserting a token"""

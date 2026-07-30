@@ -1,0 +1,199 @@
+
+#: import CalcButton ui.widgets.calc_button
+
+<FunctionButton@CalcButton>:
+    md_bg_color: app.darken2()
+    font_size: "30sp"
+    size_hint: 1,1
+    radius: dp(5)
+    on_press: app.scientific_screen.update_expression(self.text)
+    
+<NumButton@CalcButton>:
+    md_bg_color: self.theme_cls.primary_color
+    font_size: "45sp"
+    on_press: print()
+    radius: dp(5)
+    on_press: app.scientific_screen.update_expression(self.text)
+    
+    
+<OperButton@CalcButton>:
+    md_bg_color: app.darken()
+    font_size: "40sp"
+    on_press: print()
+    radius: dp(5)
+    on_press: app.scientific_screen.update_expression(self.text)
+    
+    
+    
+<ScientificScreen>:
+    MDBoxLayout:
+        orientation: "vertical"
+        spacing: dp(15)
+
+        MDTopAppBar:
+            title: "Scientific Calculator"
+            left_action_items: [["arrow-left", lambda x: setattr(app.root, "current", "main_screen")]]
+
+        MDTextField:
+            id: display
+            mode: "line"
+            readonly: True
+            text: "0"
+            font_size: "40sp"
+
+        Widget:
+            size_hint_y: None
+            height: dp(30)    
+        MDBoxLayout:
+            orientation: "vertical"
+            spacing: dp(5)
+            padding: [0,0,0,dp(30)]
+
+            MDBoxLayout:
+                spacing: dp(5)
+                size_hint_y: 3
+
+     
+                MDBoxLayout:
+                    spacing: dp(5)
+                    size_hint_x: 0.5
+                    orientation: "vertical"
+                    MDBoxLayout:
+                        spacing: dp(5)
+                        FunctionButton:
+                            text: "mod"
+                        FunctionButton:
+                            text: "x!"
+                        CalcButton:
+                            text: "Ans"
+                            md_bg_color: app.darken2()
+                            font_size: "30sp"
+                            size_hint: 1,1
+                            radius: dp(5)
+                            on_press: root.get_last_solution()
+                    MDBoxLayout:
+                        spacing: dp(5)
+                        FunctionButton:
+                            text: "log10"
+                        FunctionButton:
+                            text: "ln"
+                        FunctionButton:
+                            text: "√x"
+                    MDBoxLayout:
+                        spacing: dp(5)
+                        FunctionButton:
+                            text: "sin"
+                        FunctionButton:
+                            text: "cos"
+                        FunctionButton:
+                            text: "tan"
+
+
+                MDBoxLayout:
+                    spacing: dp(5)
+                    size_hint_x: 0.5
+                    orientation: "vertical"
+                    CalcButton:
+                        text: "Clear"
+                        md_bg_color: "orange"
+                        font_size: "30sp"
+                        size_hint: 1,1
+                        radius: dp(5)
+                        on_press: app.scientific_screen.clear()
+                    CalcButton:
+                        text: "Delete"
+                        md_bg_color: "red"
+                        font_size: "30sp"
+                        size_hint: 1,1
+                        radius: dp(5)
+                        on_press: app.scientific_screen.delete()
+                    CalcButton:
+                        text: "="
+                        md_bg_color: "green"
+                        font_size: "30sp"
+                        size_hint: 1,1
+                        radius: dp(5)
+                        on_press: app.scientific_screen.solve()
+
+            MDBoxLayout:
+                spacing: dp(5)
+                size_hint_y: 1
+                NumButton:
+                    text: "7"
+                NumButton:
+                    text: "8"
+                NumButton:
+                    text: "9"
+                OperButton:
+                    text: "("
+                OperButton:
+                    text: ")"
+                OperButton:
+                    text: "+"
+
+            MDBoxLayout:
+                spacing: dp(5)
+                size_hint_y: 1
+                NumButton:
+                    text: "4"
+                NumButton:
+                    text: "5"
+                NumButton:
+                    text: "6"
+                OperButton:
+                    text: "π"
+                OperButton:
+                    text: "e"
+                OperButton:
+                    text: "-"
+
+            MDBoxLayout:
+                spacing: dp(5)
+                size_hint_y: 1
+                NumButton:
+                    text: "1"
+                NumButton:
+                    text: "2"
+                NumButton:
+                    text: "3"
+                OperButton:
+                    text: "x²"
+                OperButton:
+                    text: "x³"
+                OperButton:
+                    text: "×"
+
+            MDBoxLayout:
+                spacing: dp(5)
+                size_hint_y: 1
+                NumButton:
+                    text: "."
+                NumButton:
+                    text: "0"
+                CalcButton:
+                    id: angle_btn
+                    md_bg_color: self.theme_cls.primary_color
+                    font_size: "20sp"
+                    on_press: root.change_angle_mode()
+                    radius: dp(5)
+                    text: "Radians"
+                    
+                OperButton:
+                    text: "1/x"
+                OperButton:
+                    text: "x^y"
+                OperButton:
+                    text: "÷"
+
+                    
+            
+                    
+            
+                
+                
+                
+                    
+            
+                    
+            
+                
