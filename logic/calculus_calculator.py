@@ -5,6 +5,7 @@ from sympy import (
     diff,
     integrate,
     oo,
+    Integer
 )
 
 
@@ -27,7 +28,6 @@ class CalculusCalculatorLogic:
             .replace("÷", "/")
             .replace("^", "**")
             .replace("π", "pi")
-            .replace("√", "sqrt")
         )
 
     def parse_expression(self, expression: str):
@@ -105,5 +105,17 @@ class CalculusCalculatorLogic:
 
             return str(result)
 
+        except Exception as e:
+            return f"Error: {e}"
+            
+    def evaluate(self, expression: str, point: float) -> str:
+        try:
+            expr = sympify(expression)
+            result = expr.subs(self.x, point)
+            if float(result) == int(result):
+                return str(int(result))
+            return str(result)
+        except ValueError:
+            return "Error: Value error"
         except Exception as e:
             return f"Error: {e}"

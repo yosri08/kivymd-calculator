@@ -1,10 +1,12 @@
 #: include ui/KVs/main_screen.kv
 #: include ui/KVs/calculator_screen.kv
 #: include ui/KVs/scientific_screen.kv
+#: include ui/KVs/calculus_screen.kv
 
 #: import MainScreen ui.main_screen
 #: import CalculatorScreen ui.calculator_screen
 #: import ScientificScreen ui.scientific_screen
+#: import CalculusScreen ui.calculus_screen
 
 MDScreenManager:
     
@@ -16,3 +18,6 @@ MDScreenManager:
         
     ScientificScreen:
         name: "scientific_screen"
+        
+    CalculusScreen:
+        name: "calculus_screen"

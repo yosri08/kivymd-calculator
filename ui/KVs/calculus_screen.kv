@@ -1,0 +1,41 @@
+#: import LimitWidget ui.widgets.limit_widget
+#: import DerivativeWidget ui.widgets.derivative_widget
+#: import IntegralWidget ui.widgets.integral_widget
+<CalculusScreen>:
+    MDBoxLayout:
+        orientation: "vertical"
+        spacing: dp(15)
+        
+        MDTopAppBar:
+            title: "Calculus Calculator"
+            
+        MDBottomNavigation:
+            MDBottomNavigationItem:
+                name: "limit"
+                text: "Limit"
+                icon: "arrow-collapse"
+
+                MDBoxLayout:
+                    padding: dp(15)
+                    LimitWidget:
+                        pos_hint: {"center_x":0.5, "center_y":0.5}
+
+            MDBottomNavigationItem:
+                name: "derivative"
+                text: "Derivative"
+                icon: "chart-bell-curve"
+
+                MDBoxLayout:
+                    padding: dp(15)
+                    DerivativeWidget:
+                        pos_hint: {"center_x":0.5, "center_y":0.5}
+
+            MDBottomNavigationItem:
+                name: "integral"
+                text: "Integral"
+                icon: "chart-areaspline-variant"
+
+                MDBoxLayout:
+                    padding: dp(15)
+                    IntegralWidget:
+                        pos_hint: {"center_x":0.5, "center_y":0.5}
