@@ -1,13 +1,17 @@
 #: import LimitWidget ui.widgets.limit_widget
 #: import DerivativeWidget ui.widgets.derivative_widget
 #: import IntegralWidget ui.widgets.integral_widget
+
+
 <CalculusScreen>:
+    md_bg_color: app.theme_manager.theme_style["bg_color"]
     MDBoxLayout:
         orientation: "vertical"
         spacing: dp(15)
         
         MDTopAppBar:
             title: "Calculus Calculator"
+            left_action_items: [["arrow-left", lambda x: setattr(app.root, "current", "main_screen")]]
             
         MDBottomNavigation:
             MDBottomNavigationItem:

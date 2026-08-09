@@ -1,0 +1,95 @@
+
+#: import CheckButton ui.widgets.check_button
+#: import ThemeSelectionWidget ui.widgets.theme_selection_widget
+#: import LongButton ui.widgets.long_button
+
+<SettingsScreen>:
+    md_bg_color: app.theme_manager.theme_style["bg_color"]
+    MDBoxLayout:
+        orientation: "vertical"
+        MDTopAppBar:
+            title: "Settings"
+            left_action_items: [["arrow-left", lambda x: setattr(app.root, "current", "main_screen")]]
+        MDBoxLayout:
+            orientation: "vertical"
+            spacing: dp(15)
+            MDLabel:
+                text: "Appearance"
+                font_size: "35sp"
+                halign: "left"
+                padding: dp(10)
+                adaptive_height: True
+            CheckButton:
+                size_hint_x: 0.9
+                pos_hint: {"center_x":0.5}
+                md_bg_color: self.theme_cls.accent_color
+                text: "Dark Theme"
+                icon: "weather-night"
+                on_press: root.change_theme_style(self)
+                
+            ThemeSelectionWidget:
+                id: buttons_container
+                size_hint_x: 0.9
+                pos_hint: {"center_x":0.5}
+                md_bg_color: self.theme_cls.accent_color
+            MDLabel:
+                text: "History"
+                font_size: "35sp"
+                halign: "left"
+                padding: dp(10)
+                adaptive_height: True
+            LongButton:
+                size_hint_x: 0.9
+                height: dp(48)
+                pos_hint: {"center_x":0.5}
+                md_bg_color: self.theme_cls.accent_color
+                text: "Export History"
+                icon: "file-export-outline"
+            LongButton:
+                size_hint_x: 0.9
+                height: dp(48)
+                pos_hint: {"center_x":0.5}
+                md_bg_color: self.theme_cls.accent_color
+                text: "Delete History"
+                icon: "delete-sweep"
+            MDLabel:
+                text: "About"
+                font_size: "35sp"
+                halign: "left"
+                padding: dp(10)
+                adaptive_height: True
+            MDLabel:
+                text: "".join(["Calculator v1.0.0","Perform calculations with precision.\n","Solve equations, derivatives, limits, and more.\n","Convert units, calculate BMI, age, and time intervals.\n","Review results and use powerful mathematical tools.\n","All calculations stay on your device."])
+                font_size: "20sp"
+                adaptive_height: True
+                padding: dp(20),0
+            MDBoxLayout:
+                adaptive_size: True
+                pos_hint: {"center_x": 0.5}
+                MDIconButton:
+                    icon: "facebook"
+                    theme_text_color: "Custom"
+                    text_color: self.theme_cls.primary_color
+                MDIconButton:
+                    icon: "instagram"
+                    theme_text_color: "Custom"
+                    text_color: self.theme_cls.primary_color
+                MDIconButton:
+                    icon: "whatsapp"
+                    theme_text_color: "Custom"
+                    text_color: self.theme_cls.primary_color
+                MDIconButton:
+                    icon: "github"
+                    theme_text_color: "Custom"
+                    text_color: self.theme_cls.primary_color
+                MDIconButton:
+                    icon: "phone"
+                    theme_text_color: "Custom"
+                    text_color: self.theme_cls.primary_color
+            MDLabel:
+                text: "All rights reserved ©NullPtr08"
+                halign: "center"
+                font_size: "25sp"
+                adaptive_height: True
+                padding: dp(10)
+                theme_text_color: "Hint"

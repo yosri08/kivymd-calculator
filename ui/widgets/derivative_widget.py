@@ -16,7 +16,7 @@ Builder.load_string(
     padding: dp(15)
     adaptive_height: True
     radius: dp(10)
-    md_bg_color: "#AA77AA"
+    md_bg_color: app.theme_manager.theme_style["card_bg_color"]
     spacing: dp(10)
     
     

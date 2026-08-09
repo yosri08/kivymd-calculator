@@ -12,7 +12,7 @@ Builder.load_string("""
     padding: dp(15)
     adaptive_height: True
     radius: dp(10)
-    md_bg_color: "#AA77AA"
+    md_bg_color: app.theme_manager.theme_style["card_bg_color"]
     spacing: dp(10)
     
     
@@ -24,6 +24,20 @@ Builder.load_string("""
         font_size: "22sp"
         bold: True
         
+    MDBoxLayout:
+        adaptive_height: True
+        orientation: "horizontal"
+        spacing: dp(15)
+        MDLabel:
+            text: "Expression"
+            font_name: "assets/fonts/NotoSansMath-Regular.ttf"
+            font_size: "30sp"
+            adaptive_size: True
+            
+        MDTextField:
+            id: expression
+            hint_text: "Enter expression here..."
+            font_size: "25sp"
         
     MDBoxLayout:
         adaptive_height: True
@@ -42,20 +56,9 @@ Builder.load_string("""
             size_hint_x: None
             width: dp(100)
 
-    MDBoxLayout:
-        adaptive_height: True
-        orientation: "horizontal"
-        spacing: dp(15)
-        MDLabel:
-            text: "Expression"
-            font_name: "assets/fonts/NotoSansMath-Regular.ttf"
-            font_size: "30sp"
-            adaptive_size: True
+    
 
-        MDTextField:
-            id: expression
-            hint_text: "Enter expression here..."
-            font_size: "25sp"
+        
 
     MDFillRoundFlatButton:
         text: "Calculate"

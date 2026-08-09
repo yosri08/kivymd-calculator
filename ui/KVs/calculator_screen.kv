@@ -5,7 +5,7 @@
     font_size: "35sp"
     radius: dp(5)
     size_hint: 1,1
-    md_bg_color: self.theme_cls.primary_color
+    md_bg_color: app.theme_manager.theme_color["light"]
     on_press: app.calculator_screen.update_expression(self.text)
     
     
@@ -13,11 +13,12 @@
     font_size: "35sp"
     radius: dp(5)
     size_hint: 1,1
-    md_bg_color: app.darken()
+    md_bg_color: self.theme_cls.primary_color
     on_press: app.calculator_screen.update_expression(self.text)
     
     
 <CalculatorScreen>:
+    md_bg_color: app.theme_manager.theme_style["bg_color"]
     MDBoxLayout:
         orientation: "vertical"
         spacing: dp(15)
@@ -43,23 +44,19 @@
                 CalcButton:
                     text: "C"
                     radius: dp(5)
-                    size_hint: 1, 1
                     md_bg_color: "orange"
                     font_size: "35sp"
                     on_press: root.clear()
 
                 OperationButton:
                     text: "÷"
-                    size_hint: 1, 1
 
                 OperationButton:
                     text: "×"
-                    size_hint: 1, 1
 
                 CalcButton:
                     text: "DEL"
                     radius: dp(5)
-                    size_hint: 1, 1
                     md_bg_color: "red"
                     font_size: "35sp"
                     on_press: root.delete()
@@ -68,69 +65,57 @@
 
                 NumberButton:
                     text: "7"
-                    size_hint: 1, 1
 
                 NumberButton:
                     text: "8"
-                    size_hint: 1, 1
 
                 NumberButton:
                     text: "9"
-                    size_hint: 1, 1
 
                 OperationButton:
                     text: "-"
-                    size_hint: 1, 1
 
             MDBoxLayout:
                 spacing: dp(5)
 
                 NumberButton:
                     text: "4"
-                    size_hint: 1, 1
 
                 NumberButton:
                     text: "5"
-                    size_hint: 1, 1
 
                 NumberButton:
                     text: "6"
-                    size_hint: 1, 1
 
                 OperationButton:
                     text: "+"
-                    size_hint: 1, 1
 
             MDBoxLayout:
                 spacing: dp(5)
 
                 NumberButton:
                     text: "1"
-                    size_hint: 1, 1
 
                 NumberButton:
                     text: "2"
-                    size_hint: 1, 1
 
                 NumberButton:
                     text: "3"
-                    size_hint: 1, 1
 
                 OperationButton:
                     text: "."
-                    size_hint: 1, 1
 
             MDBoxLayout:
                 spacing: dp(5)
 
                 NumberButton:
                     text: "0"
-                    size_hint: 0.75, 1
+                    size_hint_x: 0.75
 
                 CalcButton:
                     font_size: "35sp"
                     radius: dp(5)
-                    md_bg_color: app.darken()
+                    md_bg_color: self.theme_cls.primary_color
                     text: "="
-                    size_hint: 0.25, 1
+                    size_hint_x: 0.25
                     on_press: root.solve()

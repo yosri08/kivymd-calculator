@@ -2,14 +2,14 @@
 #: import CalcButton ui.widgets.calc_button
 
 <FunctionButton@CalcButton>:
-    md_bg_color: app.darken2()
+    md_bg_color: app.theme_manager.theme_color["dark"]
     font_size: "30sp"
     size_hint: 1,1
     radius: dp(5)
     on_press: app.scientific_screen.update_expression(self.text)
     
 <NumButton@CalcButton>:
-    md_bg_color: self.theme_cls.primary_color
+    md_bg_color: app.theme_manager.theme_color["light"]
     font_size: "45sp"
     on_press: print()
     radius: dp(5)
@@ -17,7 +17,7 @@
     
     
 <OperButton@CalcButton>:
-    md_bg_color: app.darken()
+    md_bg_color: self.theme_cls.primary_color
     font_size: "40sp"
     on_press: print()
     radius: dp(5)
@@ -26,6 +26,7 @@
     
     
 <ScientificScreen>:
+    md_bg_color: app.theme_manager.theme_style["bg_color"]
     MDBoxLayout:
         orientation: "vertical"
         spacing: dp(15)
@@ -66,7 +67,7 @@
                             text: "x!"
                         CalcButton:
                             text: "Ans"
-                            md_bg_color: app.darken2()
+                            md_bg_color: app.theme_manager.theme_color["dark"]
                             font_size: "30sp"
                             size_hint: 1,1
                             radius: dp(5)
@@ -172,7 +173,7 @@
                     text: "0"
                 CalcButton:
                     id: angle_btn
-                    md_bg_color: self.theme_cls.primary_color
+                    md_bg_color: app.theme_manager.theme_color["light"]
                     font_size: "20sp"
                     on_press: root.change_angle_mode()
                     radius: dp(5)

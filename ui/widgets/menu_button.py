@@ -11,16 +11,17 @@ Builder.load_string("""
 <MenuButton>:
     orientation: "vertical"
     size_hint: None,None
-    size: dp(125), dp(125)
+    size: dp(125), dp(150)
     md_bg_color: self.theme_cls.primary_color
-    spacing: dp(5)
-    padding: dp(10)
+    spacing: dp(15)
+    padding: dp(5)
     radius: dp(7)
     
     MDIcon:
         pos_hint: {"center_x": 0.5}
         font_size: "75sp"
         icon: root.icon
+        adaptive_size: True
         
     MDLabel:
         halign: "center"

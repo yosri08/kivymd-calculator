@@ -1,11 +1,13 @@
 <MainScreen>:
+    
     MDBoxLayout:
         orientation: "vertical"
         spacing: dp(15)
-        
+        md_bg_color: app.theme_manager.theme_style["bg_color"]
         MDTopAppBar:
             title: "Calculator App"
             elevation: 2
+            right_action_items: [["cog", lambda x: setattr(app.root, "current", "settings_screen")]]
 
         MDGridLayout:
             cols: 3
@@ -25,7 +27,27 @@
             MenuButton:
                 icon: "math-integral"
                 text: "Calculus"
+                on_press: setattr(app.root, "current", "calculus_screen")
+            MenuButton:
+                icon: "numeric"
+                text: "GCM & LCM"
+                
+            MenuButton:
+                icon: "diamond-stone"
+                text: "Prime Checker"
 
             MenuButton:
-                icon: "cog"
-                text: "Settings"
+                icon: "cached"
+                text: "Unit Converter"
+                
+            MenuButton:
+                icon: "scale-bathroom"
+                text: "BMI"
+                
+            MenuButton:
+                icon: "cake-variant"
+                text: "Age Calculator"
+                
+            MenuButton:
+                icon: "timer-outline"
+                text: "Time Interval"
