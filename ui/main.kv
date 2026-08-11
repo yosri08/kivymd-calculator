@@ -3,12 +3,14 @@
 #: include ui/KVs/scientific_screen.kv
 #: include ui/KVs/calculus_screen.kv
 #: include ui/KVs/settings_screen.kv
+#: include ui/KVs/gcf_lcm_screen.kv
 
 #: import MainScreen ui.main_screen
 #: import CalculatorScreen ui.calculator_screen
 #: import ScientificScreen ui.scientific_screen
 #: import CalculusScreen ui.calculus_screen
 #: import SettingsScreen ui.settings_screen
+#: import GCFLCMScreen ui.gcf_lcm_screen
 
 MDScreenManager:
     
@@ -26,3 +28,6 @@ MDScreenManager:
         
     SettingsScreen:
         name: "settings_screen"
+    
+    GCFLCMScreen:
+        name: "gcf_lcm_screen"

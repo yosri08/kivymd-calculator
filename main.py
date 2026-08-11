@@ -15,11 +15,12 @@ class CalculatorApp(MDApp):
         return Builder.load_file("ui/main.kv")
         
     def on_start(self):
-        self.root.current = "settings_screen"
+        self.root.current = "gcf_lcm_screen"
         self.main_screen = self.root.get_screen("main_screen")
         self.calculator_screen = self.root.get_screen("calculator_screen")
         self.scientific_screen = self.root.get_screen("scientific_screen")
         self.settings_screen = self.root.get_screen("settings_screen")
+        self.gcf_lcm_screen = self.root.get_screen("gcf_lcm_screen")
         
         
     

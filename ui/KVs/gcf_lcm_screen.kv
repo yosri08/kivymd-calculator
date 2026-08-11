@@ -1,0 +1,97 @@
+
+#: import ResultWidget ui.widgets.result_widget
+<NumberWidget>:
+    orientation: "horizontal"
+    adaptive_height: True
+    radius: dp(10)
+    spacing: dp(5)
+    padding: dp(5)
+    md_bg_color: app.theme_manager.theme_color["light"]
+    MDLabel:
+        id: label
+        adaptive_size: True
+        text: root.index
+        font_size: "40sp"
+        pos_hint: {"center_y":0.5}
+    MDTextField:
+        id: value_field
+        line_color_normal: self.theme_cls.accent_color
+        line_color_focus: self.theme_cls.accent_color
+        text_color_normal: self.theme_cls.accent_color
+        text_color_focus: self.theme_cls.accent_color
+        hint_text_color_normal: self.theme_cls.accent_color
+        hint_text_color_focus: self.theme_cls.accent_color
+        hint_text: "Enter number"
+        on_text: app.gcf_lcm_screen.solve()
+        
+
+    
+<GCFLCMScreen>:
+    md_bg_color: app.theme_manager.theme_style["bg_color"]
+    MDBoxLayout:
+        orientation: "vertical"
+        spacing: dp(15)
+        MDTopAppBar:
+            title: "GCF & LCM"
+            left_action_items: [["arrow-left", lambda x: setattr(app.root, "current", "main_screen")]]   
+        MDBoxLayout:
+            orientation: "vertical"
+            spacing: dp(15)
+            padding: dp(15),0
+            MDLabel:
+                text: "Values"
+                adaptive_size: True
+                bold: True
+                font_size: "30sp"
+                padding: dp(10),0
+            ScrollView:
+                MDGridLayout:
+                    id: nums_container
+                    adaptive_height: True
+                    spacing: dp(10)
+                    size_hint_y: None
+                    height: self.minimum_height
+                    cols: 2
+                    NumberWidget:
+                        index: "A"
+                    
+                    NumberWidget:
+                        index: "B"
+                    
+            MDBoxLayout:
+                orientation: "horizontal"
+                adaptive_height: True
+                spacing: dp(25)
+                MDLabel:
+                    adaptive_height: True
+                    font_size: "18sp"
+                    size_hint_x: 0.7
+                    text: "Find the greatest common factor and lowest common multiple"
+                
+                MDFloatingActionButton:
+                    _no_ripple_effect: True
+                    icon: "plus"
+                    on_press: root.add_number_widget()
+                MDFloatingActionButton:
+                    _no_ripple_effect: True
+                    icon: "minus"
+                    on_press: root.remove_number_widget()
+            MDLabel:
+                text: "Result"
+                adaptive_size: True
+                bold: True
+                font_size: "30sp"
+                padding: dp(10),0
+            ResultWidget:
+                id: gcf_label
+                left_text: "GCF"
+                right_text: "--"
+                icon: "select-compare"
+            ResultWidget:
+                id: lcm_label
+                left_text: "LCM"
+                right_text: "--"
+                icon: "format-list-numbered"
+            MDBoxLayout:
+            
+            
