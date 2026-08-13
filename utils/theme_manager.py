@@ -1,5 +1,7 @@
 from kivy.properties import DictProperty
 from kivy.event import EventDispatcher
+from kivy.core.text import LabelBase
+
 
 class ThemeManager(EventDispatcher):  
       
@@ -37,12 +39,34 @@ class ThemeManager(EventDispatcher):
     
     theme_color = DictProperty()
     theme_style = DictProperty()
+    font_name = "main"
+    font_path = "assets/fonts/NotoSans-Regular.ttf"
+    
     def __init__(self, app, **kwargs):  
         super().__init__(**kwargs)
         self.app = app
         # app starts with light mode and blue theme color
         self.theme_color = self.THEME_COLORS["Blue"]
         self.theme_style = self.THEME_STYLES["Light"]
+        self.change_app_font(self.font_name, self.font_path)
+        
+        
+    def change_app_font(self, font_name, font_path):
+        LabelBase.register(
+        name=font_name,
+        fn_regular=font_path,
+    )
+
+        for style, values in self.app.theme_cls.font_styles.items():
+            if style == "Icon":
+                continue
+
+            self.app.theme_cls.font_styles[style] = [
+                font_name,
+                values[1],
+                values[2],
+                values[3],
+            ]
         
     def change_theme_color(self, theme):
         self.app.theme_cls.primary_palette = theme

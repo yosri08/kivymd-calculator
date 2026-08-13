@@ -1,0 +1,74 @@
+  
+#: import ResultWidget ui.widgets.result_widget  
+  
+  
+<PrimeCheckerScreen>:  
+    md_bg_color: app.theme_manager.theme_style["bg_color"]  
+    MDBoxLayout:  
+        orientation: "vertical"  
+        spacing: dp(15)  
+        MDTopAppBar:  
+            title: "Prime Checker"  
+            left_action_items: [["arrow-left", lambda x: setattr(app.root, "current", "main_screen")]]  
+          
+        MDBoxLayout:
+            orientation: "vertical"
+            spacing: dp(15)
+            padding: dp(15)
+            MDLabel:  
+                text: "Value"  
+                adaptive_size: True  
+                bold: True  
+                font_size: "30sp"  
+                padding: dp(10),0  
+              
+            MDTextField:  
+                id: value_field  
+              
+                mode: "fill"  
+                font_size: "35sp"  
+                fill_color_normal: app.theme_manager.theme_color["light"]  
+                fill_color_focus: app.theme_manager.theme_color["light"]  
+                hint_text: "Enter the number here..."  
+                hint_text_color_normal: app.theme_cls.accent_color  
+                hint_text_color_focus: app.theme_cls.accent_color  
+                icon_left: "pencil"  
+                icon_left_color_normal: app.theme_cls.accent_color  
+                icon_left_color_focus: app.theme_cls.accent_color  
+                text_color_normal: app.theme_cls.accent_color  
+                text_color_focus: app.theme_cls.accent_color  
+                on_text: root.solve()
+          
+            MDBoxLayout:  
+                adaptive_height: True  
+                orientation: "horizontal"  
+                spacing: dp(25)  
+                size_hint_x: 0.8  
+                pos_hint: {"center_x": 0.5}  
+                MDIcon:  
+                    icon: "arrow-right-bottom"  
+                    font_size: "40sp"  
+                MDLabel:  
+                    pos_hint: {"center_x":0.5}
+                    adaptive_height: True  
+                    font_size: "18sp"  
+                    text: "Check if this value is prime"  
+                  
+            ResultWidget:  
+                id: is_prime_label
+                icon: "help-circle-outline"  
+                left_text: "Is prime"  
+                right_text: "--"  
+              
+            ResultWidget:  
+                id: next_prime_label
+                icon: "arrow-right"  
+                left_text: "Next prime"  
+                right_text: "--"  
+            ResultWidget:  
+                id: prime_factors_label
+                icon: "sitemap"  
+                left_text: "Prime factors"  
+                right_text: "--"  
+            MDBoxLayout:  
+            #adaptive_height: True  

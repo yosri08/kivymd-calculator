@@ -3,6 +3,9 @@ from kivy.lang import Builder
 
 from utils.theme_manager import ThemeManager
 
+from kivy.core.text import LabelBase
+
+
 
 
 
@@ -13,9 +16,8 @@ class CalculatorApp(MDApp):
         self.theme_manager = ThemeManager(self)
         self.theme_cls.accent_palette = "Gray"
         return Builder.load_file("ui/main.kv")
-        
     def on_start(self):
-        self.root.current = "gcf_lcm_screen"
+        self.root.current = "prime_checker_screen"
         self.main_screen = self.root.get_screen("main_screen")
         self.calculator_screen = self.root.get_screen("calculator_screen")
         self.scientific_screen = self.root.get_screen("scientific_screen")
