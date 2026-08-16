@@ -24,7 +24,7 @@ Builder.load_string(
         id: left_text
         adaptive_height: True
         text: root.left_text
-        font_size: "30sp"
+        font_size: "28sp"
         halign: "left"
         pos_hint: {"center_y":0.5}
     MDLabel:

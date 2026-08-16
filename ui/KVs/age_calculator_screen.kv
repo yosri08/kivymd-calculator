@@ -1,0 +1,50 @@
+
+#: import CustomDatePicker ui.widgets.custom_date_picker
+#: import ResultWidget ui.widgets.result_widget
+<AgeCalculatorScreen>:
+    md_bg_color: app.theme_manager.theme_style["bg_color"]
+    MDBoxLayout:
+        orientation: "vertical"
+        spacing: dp(15)
+        MDTopAppBar:
+            title: "Age Calculator"
+            left_action_items: [["arrow-left", lambda x: setattr(app.root, "current", "main_screen")]]
+        MDBoxLayout:
+            orientation: "vertical"
+            spacing: dp(15)
+            padding: dp(15)
+            MDLabel:  
+                text: "Birth date"  
+                adaptive_size: True  
+                bold: True  
+                font_size: "30sp"  
+                padding: dp(10),0
+            CustomDatePicker:
+                
+            MDBoxLayout:  
+                adaptive_height: True  
+                orientation: "horizontal"  
+                spacing: dp(25)  
+                size_hint_x: 0.8  
+                pos_hint: {"center_x": 0.5}  
+                MDIcon:  
+                    icon: "arrow-right-bottom"  
+                    font_size: "40sp"  
+                MDLabel:  
+                    pos_hint: {"center_x":0.5}
+                    adaptive_height: True  
+                    font_size: "18sp"  
+                    text: "Find your age based on your birth date"
+            ResultWidget:
+                id: current_age_label
+                icon: "account-clock-outline"
+                left_text: "Current age"
+                right_text: "--"
+            ResultWidget:
+                id: next_birthday_label
+                icon: "cake-variant-outline"
+                left_text: "Next birthday"
+                right_text: "--"
+            MDBoxLayout:
+            
+            
